@@ -44,6 +44,6 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
-        cache-from: type=gha # 缓存 加速编译
+        cache-from: type=gha # 缓存加速编译
         cache-to: type=gha,mode=max
               
