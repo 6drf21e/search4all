@@ -14,12 +14,12 @@ ENV NEXT_DIST_DIR ./NEXT_BUILD
 RUN npm run build
 
 # Stage 2: Set up the Python environment
-FROM python:3.10-slim
+FROM python:3.9-slim
 WORKDIR /app
 
 # Install Python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install pip -U && pip install --no-cache-dir -r requirements.txt
 
 # Copy Next.js build artifacts from the build stage
 COPY --from=build-stage /app/NEXT_BUILD /app/ui
