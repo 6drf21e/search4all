@@ -1,11 +1,15 @@
 name: Docker Image CI
 
+# on:
+#   push:
+#     branches: [ "docker-deploy-add-arm64-and-tags" ] # 测试分支 正式启用改为 main 下同
+#     tags: [ "*" ]  # 监听所有标签推送事件
+#   pull_request:
+#     branches: [ "docker-deploy-add-arm64-and-tags" ]
 on:
-  push:
-    branches: [ "docker-deploy-add-arm64-and-tags" ] # 测试分支 正式启用改为 main 下同
-    tags: [ "*" ]  # 监听所有标签推送事件
-  pull_request:
-    branches: [ "docker-deploy-add-arm64-and-tags" ]
+  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
 
